@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <a href="file:///C:/Users/24mca52/Documents/picture-slide.html">Slideshow</a>
+  <title>Digital Clock</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 100px; }
+    #clock {
+      font-size: 48px;
+      color: #333;
+      background: #f4f4f4;
+      display: inline-block;
+      padding: 30px 60px;
+      border-radius: 16px;
+      border: 2px solid #ccc;
+      box-shadow: 2px 2px 12px #aaa;
+    }
+  </style>
+</head>
+<body>
+  <div id="clock"></div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      // Format as HH:MM:SS
+      let hours = String(now.getHours()).padStart(2, '0');
+      let minutes = String(now.getMinutes()).padStart(2, '0');
+      let seconds = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock(); // Initial call to show clock immediately
+  </script>
+</body>
+</html>

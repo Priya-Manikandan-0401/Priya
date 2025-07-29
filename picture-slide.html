@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Picture Slideshow</title>
+
+</head>
+<body>
+  <h2>Picture Slideshow</h2>
+  <div id="slideshow">
+    <img id="slide" src="https://i.pinimg.com/736x/ea/4c/7e/ea4c7e71fbcdc7d776e7163f337ec4fe.jpg" width="300" height="200"><br><br>
+  </div>
+  <div class="controls">
+    <button onclick="prevSlide()">Previous</button>
+    <button onclick="nextSlide()">Next</button>
+  </div>
+
+  <script>
+    // Array of image URLs (replace with your own images or add more)
+    const images = [
+      "https://i.pinimg.com/736x/ea/4c/7e/ea4c7e71fbcdc7d776e7163f337ec4fe.jpg" ,
+      "https://i.pinimg.com/736x/bc/57/cf/bc57cf19ad3957aa67e011bd02112738.jpg",
+      "https://i.pinimg.com/170x/33/5d/9f/335d9f408347ba64009957c2226b26b7.jpg",
+      "https://m.media-amazon.com/images/M/MV5BZWFiZmM2ZGQtZGE0OC00ZmI4LWI0NzAtM2QzZDg5ODdiYWQ5XkEyXkFqcGc@._V1_.jpg"
+    ];
+
+    let current = 0;
+    const slideImg = document.getElementById('slide');
+
+    function showSlide(index) {
+      if (index < 0) index = images.length - 1;
+      if (index >= images.length) index = 0;
+      current = index;
+      slideImg.src = images[current];
+    }
+
+    function nextSlide() {
+      showSlide(current + 1);
+    }
+
+    function prevSlide() {
+      showSlide(current - 1);
+    }
+
+    // Auto-slideshow every 3 seconds
+    setInterval(() => {
+      nextSlide();
+    }, 3000);
+
+    // Initialize
+    showSlide(current);
+  </script>
+</body>
+</html>
